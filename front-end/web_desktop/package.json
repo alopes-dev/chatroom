@@ -1,0 +1,64 @@
+{
+    "name": "web-electron",
+    "version": "0.1.0",
+    "private": true,
+    "main": "public/main.js",
+    "author": "António Lopes",
+    "description": "...",
+    "homepage": "./",
+    "dependencies": {
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.3.2",
+        "@testing-library/user-event": "^7.1.2",
+        "axios": "^0.19.2",
+        "cross-env": "^7.0.2",
+        "electron-is-dev": "^1.2.0",
+        "history": "^4.10.1",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-router-dom": "^5.1.2",
+        "react-scripts": "3.4.1",
+        "socket.io-client": "^2.3.0",
+        "styled-components": "^5.1.0"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "preelectron-pack": "yarn run build",
+        "electron-pack": "electron-builder -c.extraMetadata.main=build/main.js",
+        "electron-dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\""
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "build": {
+        "appId": "e572978f281f6ad27532be9374d14c55",
+        "files": [
+            "build/**/*",
+            "node_modules/**/*"
+        ],
+        "directories": {
+            "buildResources": "assets"
+        }
+    },
+    "devDependencies": {
+        "concurrently": "^5.2.0",
+        "electron": "^8.2.5",
+        "electron-builder": "^22.6.0",
+        "wait-on": "^5.0.0"
+    }
+}

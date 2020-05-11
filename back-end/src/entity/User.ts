@@ -1,18 +1,23 @@
-import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+import {Entity, Column, PrimaryColumn, OneToMany} from "typeorm";
+
+import Message from "./Message";
 
 @Entity()
-export class User {
+class User {
 
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryColumn("uuid",{generated:"uuid"})
+    id: string;
 
-    @Column()
-    firstName: string;
+    @Column({type:"varchar", length:50})
+    email: string;
 
-    @Column()
-    lastName: string;
+    @Column({type:"varchar", length:50})
+    password: string;
 
-    @Column()
-    age: number;
+    @OneToMany(()=>Message, message=>message.emitter)
+    @OneToMany(()=>Message, message=>message.receptor)
+    messages:Message
 
 }
+
+export  default User;
