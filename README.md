@@ -17,17 +17,23 @@ Clone the repository, and install the dependencies by running the following comm
   $ git clone https://github.com/ilovemochi/met-care
 ```
 
+Access the project on `` met-care `` directory:
+
 ```sh
   $ cd met-care
 ```
 
+Access the `` develop `` branch:
+
 ```sh
  $ git checkout develop
 ```
+pull all `` develop `` changes:
 
 ```sh
  $ git pull origin develop
 ```
+then install all dependencies :
 
 ```sh
  $ npm install
